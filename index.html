@@ -120,9 +120,95 @@
         </style>
         <script>
             !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t,e){var n=document.createElement("script");n.type="text/javascript";n.async=!0;n.src="https://cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(n,a);analytics._loadOptions=e};analytics.SNIPPET_VERSION="4.1.0";
-            analytics.load("7tTOvfYDNuoYOisGgdVAokPLPx1DUt11");
-            analytics.page();
+                analytics.load("7tTOvfYDNuoYOisGgdVAokPLPx1DUt11");
+                analytics.page();
             }}();
+
+            const payload ={
+                text: {
+                    "blocks": [
+                    {
+                        "type": "section",
+                        "text": {
+                            "type": "mrkdwn",
+                            "text": "You have a new request:\n*<fakeLink.toEmployeeProfile.com|Fred Enriquez - New device request>*"
+                        }
+                    },
+                    {
+                        "type": "section",
+                        "fields": [
+                            {
+                                "type": "mrkdwn",
+                                "text": "*Type:*\nComputer (laptop)"
+                            },
+                            {
+                                "type": "mrkdwn",
+                                "text": "*When:*\nSubmitted Aut 10"
+                            },
+                            {
+                                "type": "mrkdwn",
+                                "text": "*Last Update:*\nMar 10, 2015 (3 years, 5 months)"
+                            },
+                            {
+                                "type": "mrkdwn",
+                                "text": "*Reason:*\nAll vowel keys aren't working."
+                            },
+                            {
+                                "type": "mrkdwn",
+                                "text": "*Specs:*\n\"Cheetah Pro 15\" - Fast, really fast\""
+                            }
+                        ]
+                    },
+                    {
+                        "type": "actions",
+                        "elements": [
+                            {
+                                "type": "button",
+                                "text": {
+                                    "type": "plain_text",
+                                    "emoji": true,
+                                    "text": "Approve"
+                                },
+                                "style": "primary",
+                                "value": "click_me_123"
+                            },
+                            {
+                                "type": "button",
+                                "text": {
+                                    "type": "plain_text",
+                                    "emoji": true,
+                                    "text": "Deny"
+                                },
+                                "style": "danger",
+                                "value": "click_me_123"
+                            }
+                        ]
+                    }
+                ]
+                }
+            }
+            const url = 'https://hooks.slack.com/services/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';
+            const params = {
+                method: 'POST', // *GET, POST, PUT, DELETE, etc.
+                mode: 'cors', // no-cors, *cors, same-origin
+                cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+                credentials: 'same-origin', // include, *same-origin, omit
+                headers: {
+                'Content-Type': 'application/json'
+                },
+                redirect: 'follow', // manual, *follow, error
+                referrerPolicy: 'no-referrer', // no-referrer, *client
+                body: JSON.stringify(payload) // body data type must match "Content-Type" header
+            }
+
+            function sendDataToSlackWenHooks() {
+                fetch(url, params).then((res) => {
+                    console.log(' res ', res);
+                }).catch((error) => {
+                    console.log(' error ', error);
+                })
+            }
+            sendDataToSlackWenHooks();
         </script>
     <head>
     <body>
