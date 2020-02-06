@@ -1,5 +1,14 @@
 <html>
     <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-157885422-1"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-157885422-1');
+        </script>
+
         <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css">
         <link type="text/css"rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <style>
@@ -194,7 +203,8 @@
                 // cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
                 // credentials: 'same-origin', // include, *same-origin, omit
                 headers: {
-                'Content-Type': 'application/json'
+                    'Content-type': 'application/json',
+                    "challenge": "3eZbrw1aBm2rZgRNFdxV2595E9CY3gmdALWMmHkvFXO7tYXAYM8P",
                 },
                 // redirect: 'follow', // manual, *follow, error
                 // referrerPolicy: 'no-referrer', // no-referrer, *client
